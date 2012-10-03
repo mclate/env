@@ -18,7 +18,7 @@ test -e $ROOT/.hostinfo && . $ROOT/.hostinfo
 [ -d ~/.vim ] || cp -r $ROOT/.vim ~/.vim
 
 # Same for ~/.vimmrc. We do ln instead of copy in order to ease updates with git pull
-[ -f ~/.vimrc ] || ln $ROOT/.virmc ~/.vimrc
+[ -f ~/.vimrc ] || ln $ROOT/.vimrc ~/.vimrc
 
 
 # get git status
