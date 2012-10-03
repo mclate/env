@@ -13,6 +13,14 @@ test -e $ROOT/.bin/.bash_aliases && . $ROOT/.bin/.bash_aliases
 # Host-specific options (server color, specific aliases etc)
 test -e $ROOT/.hostinfo && . $ROOT/.hostinfo
 
+
+# Check if ~/.vim folder exists. If don't - copy ours
+[ -d ~/.vim ] || cp -r $ROOT/.vim ~/.vim
+
+# Same for ~/.vimmrc. We do ln instead of copy in order to ease updates with git pull
+[ -f ~/.vimrc ] || ln $ROOT/.virmc ~/.vimrc
+
+
 # get git status
 function parse_git_status {
     # clear git variables
