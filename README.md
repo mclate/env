@@ -1,4 +1,4 @@
-My small environment stuff. Definitely useful for me and might be usefull for someone else.
+My small environment stuff. Definitely useful for me and might be useful for someone else.
 
 ## Usage
 
