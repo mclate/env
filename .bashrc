@@ -88,7 +88,7 @@ function prompt_command {
       fi
 
       if [ ! -z $GIT_DIRTY ]; then
-        BRANCH="\[${BYellow}\][${GIT_BRANCH}]\[${Color_Off}\]"
+        BRANCH="\[${BYellow}\][${GIT_BRANCH}]"
       else
         BRANCH="[${GIT_BRANCH}]"
       fi
@@ -96,8 +96,8 @@ function prompt_command {
       if [ "x${GIT_DIR}" == "x" ]; then
         PS1_GIT=${DIR}
        else
-        repl=${DIR%$GIT_DIR*}'\['${COLOR}'\]'${GIT_DIR}${BRANCH}'\['${Color_Off}'\]'${DIR##*$GIT_DIR}
-        PS1_GIT=${repl} #`echo "${DIR}" | sed "s|/${GIT_DIR}|/${repl}|"`
+        repl=${DIR%$GIT_DIR*}"\["${COLOR}"\]"${GIT_DIR}${BRANCH}"\["${Color_Off}"\]"${DIR##*$GIT_DIR}
+        PS1_GIT=${repl}              #`echo "${DIR}" | sed "s|/${GIT_DIR}|/${repl}|"`
       fi
   else
   	PS1_GIT='\w'
