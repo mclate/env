@@ -2,9 +2,8 @@
 
 # Folder in home where this stuff is located (normally .bin)
 ROOT=~/.bin
-
-
 PATH=$PATH:$ROOT
+
 
 # Loading colors and aliases
 test -e $ROOT/.bin/.bash_colors  && . $ROOT/.bin/.bash_colors
@@ -17,7 +16,7 @@ test -e $ROOT/.hostinfo && . $ROOT/.hostinfo
 # Check if ~/.vim folder exists. If don't - copy ours
 [ -d ~/.vim ] || cp -r $ROOT/.vim ~/.vim
 
-# Same for ~/.vimmrc. We do ln instead of copy in order to ease updates with git pull
+# Same for ~/.vimrc. We do ln instead of copy in order to ease updates with git pull
 [ -f ~/.vimrc ] || ln $ROOT/.vimrc ~/.vimrc
 
 
@@ -55,7 +54,7 @@ function parse_git_status {
 function prompt_command {
 
   if [ `id -u` == "0" ]; then
-    mUSER="\[${Red}\]\u\[\e[0m\]"
+    mUSER="\[${Red}\]\u\[${Color_Off}\]"
   else
     mUSER="\[${Green}\]\u\[${Color_Off}\]"
   fi
@@ -97,7 +96,7 @@ function prompt_command {
         PS1_GIT=${DIR}
        else
         repl=${DIR%$GIT_DIR*}"\["${COLOR}"\]"${GIT_DIR}${BRANCH}"\["${Color_Off}"\]"${DIR##*$GIT_DIR}
-        PS1_GIT=${repl}              #`echo "${DIR}" | sed "s|/${GIT_DIR}|/${repl}|"`
+        PS1_GIT=${repl}
       fi
   else
   	PS1_GIT='\w'
