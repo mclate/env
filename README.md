@@ -7,3 +7,5 @@ My small environment stuff. Definitely useful for me and might be useful for som
 3. Relogin
 
 Additionally you can create ~/.bin/.hostinfo file which is specific to this host (you can add color definitions there or some specific aliases etc)
+
+In .hostinfo use DATE_COLOR to change color of the date and HOST_COLOR to change hostname color.
