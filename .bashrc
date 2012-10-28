@@ -32,12 +32,12 @@ function parse_git_status {
     [[ -z $GIT_BIN ]] && return
 
     # check we are in git repo
-    local CUR_DIR=$PWD
-    while [ ! -d ${CUR_DIR}/.git ] && [ ! $CUR_DIR = "/" ]; do CUR_DIR=${CUR_DIR%/*}; done
-    [[ ! -d ${CUR_DIR}/.git ]] && return
+    local CUR_DIR="$PWD"
+    while [ ! -d "${CUR_DIR}/.git" ] && [ ! "$CUR_DIR" = "" ]; do CUR_DIR="${CUR_DIR%/*}"; done
+    [[ ! -d "${CUR_DIR}/.git" ]] && return
 
     # 'git repo for dotfiles' fix: show git status only in home dir and other git repos
-    [[ $CUR_DIR == $HOME ]] && [[ $PWD != $HOME ]] && return
+    [[ "$CUR_DIR" == "$HOME" ]] && [[ "$PWD" != "$HOME" ]] && return
 
     # get git branch
     GIT_BRANCH=$($GIT_BIN symbolic-ref HEAD 2>/dev/null)
@@ -67,9 +67,9 @@ function prompt_command {
   local PWDNAME=$PWD
 
   # beautify working firectory name
-  if [ $HOME == $PWD ]; then
+  if [ "$HOME" == "$PWD" ]; then
     DIR="~"
-  elif [ $HOME ==  ${PWD:0:${#HOME}} ]; then
+  elif [ "$HOME" == "${PWD:0:${#HOME}}" ]; then
     DIR="~${PWD:${#HOME}}"
   else
     DIR=$PWD
