@@ -4,6 +4,8 @@
 ROOT=~/.bin
 PATH=$PATH:$ROOT
 
+# enable vi-style for bash
+set -o vi
 
 # Loading colors and aliases
 test -e $ROOT/.bin/.bash_colors  && . $ROOT/.bin/.bash_colors
