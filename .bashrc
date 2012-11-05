@@ -6,6 +6,11 @@ PATH=$PATH:$ROOT
 
 # enable vi-style for bash
 set -o vi
+bind -m vi-command ".":insert-last-argument
+bind -m vi-insert "\C-l.":clear-screen
+bind -m vi-insert "\C-a.":beginning-of-line
+bind -m vi-insert "\C-e.":end-of-line
+bind -m vi-insert "\C-w.":backward-kill-word
 
 # Loading colors and aliases
 test -e $ROOT/.bin/.bash_colors  && . $ROOT/.bin/.bash_colors
