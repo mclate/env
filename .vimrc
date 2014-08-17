@@ -34,6 +34,8 @@ let &colorcolumn="81"
 
 syntax on
 
+:nnoremap <CR> a
+
 nmap <Tab> :tabnext<CR>
 nmap <S-Tab> :tabprevious<CR>
 
