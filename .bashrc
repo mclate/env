@@ -109,7 +109,14 @@ function prompt_command {
   	PS1_GIT='\w'
   fi
 
-PS1="\[${DATE_COLOR}\]`date '+%d.%m %H:%M:%S'`\[${Color_Off}\]|${debian_chroot:+($debian_chroot)}${mUSER}@\[${HOST_COLOR:-$BWhite}\]\h\[${Green}\]:\[${Color_Off}\]"${PS1_GIT}"\[${BBlue}\]\$\[${Color_Off}\] "
+  JC=$(jobs | wc -l)
+  if (( ${JC} == 0 )); then
+      BG_JOBS=''
+  else
+      BG_JOBS=" (${JC})"
+  fi
+
+  PS1="\[${DATE_COLOR}\]`date '+%d.%m %H:%M:%S'`\[${Color_Off}\]|${debian_chroot:+($debian_chroot)}${mUSER}@\[${HOST_COLOR:-$BWhite}\]\h\[${Green}\]:\[${Color_Off}\]"${PS1_GIT}"${BG_JOBS}\[${BBlue}\]\$\[${Color_Off}\] "
 
 }
 
